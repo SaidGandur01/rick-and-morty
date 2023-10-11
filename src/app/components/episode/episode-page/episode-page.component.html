@@ -1,1 +1,19 @@
-<p>episode-page works!</p>
+<div *ngIf="
+  episodes &&
+  episodes.results &&
+  episodes.results.length
+"
+  class="app-character-page">
+  <h1>Episodes List Page</h1>
+  <button routerLink="/">Main Page</button>
+
+  <div
+    *ngFor="let episodes of episodes.results"
+    (click)="goToEpisodeDetails(episodes.id)"
+    class="container">
+    <h2>{{ episodes.name }}</h2>
+    <h2>{{ episodes.episode }}</h2>
+    <h2>{{ episodes.created }}</h2>
+    <h2>{{ episodes.air_date }}</h2>
+  </div>
+</div>

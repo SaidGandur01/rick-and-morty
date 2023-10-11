@@ -21,7 +21,7 @@ export class CharacterDetailsComponent implements OnInit, OnDestroy {
     this.getCharacterId();
   }
 
-  getCharacterId(): void {
+  private getCharacterId(): void {
     this.subscription.push(
       this.route.paramMap.subscribe((params: ParamMap) => {
         const id = params.get('id');

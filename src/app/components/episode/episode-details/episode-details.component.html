@@ -1,1 +1,10 @@
-<p>episode-details works!</p>
+<div *ngIf="episode" class="app-episode-details">
+  <h1>episode Details Page</h1>
+  <button routerLink="/episode">Back</button>
+  <div class="episode-information">
+    <h2>{{ episode.name }}</h2>
+    <h2>{{ episode.air_date }}</h2>
+    <h2>{{ episode.created }}</h2>
+    <h2>{{ episode.episode }}</h2>
+  </div>
+</div>
