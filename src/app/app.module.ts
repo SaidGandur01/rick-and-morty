@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,10 +8,10 @@ import { CharacterDetailsComponent } from './components/character/character-deta
 import { CharacterPageComponent } from './components/character/character-page/character-page.component';
 import { EpisodeDetailsComponent } from './components/episode/episode-details/episode-details.component';
 import { EpisodePageComponent } from './components/episode/episode-page/episode-page.component';
+import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { LocationDetailsComponent } from './components/location/location-details/location-details.component';
 import { LocationPageComponent } from './components/location/location-page/location-page.component';
-import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

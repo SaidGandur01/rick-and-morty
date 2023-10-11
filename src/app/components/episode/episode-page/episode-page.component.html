@@ -6,7 +6,9 @@
   class="app-character-page">
   <h1>Episodes List Page</h1>
   <button routerLink="/">Main Page</button>
-
+  <section class="search-section">
+    <input #inputElement type="text" (input)="onChange($event)">
+  </section>
   <div
     *ngFor="let episodes of episodes.results"
     (click)="goToEpisodeDetails(episodes.id)"

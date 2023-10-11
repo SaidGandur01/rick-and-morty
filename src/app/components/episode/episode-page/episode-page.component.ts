@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { RickAndMortyService } from 'src/app/services/rick-and-morty.service';
 import { IEpisodeResponse } from 'src/app/utils/interfaces/episode.interface';
 
@@ -12,6 +12,9 @@ import { IEpisodeResponse } from 'src/app/utils/interfaces/episode.interface';
 export class EpisodePageComponent implements OnInit, OnDestroy {
   subscription!: Subscription
   episodes!: IEpisodeResponse;
+  inputChange$ = new Subject<string>();
+  @ViewChild('barChart', { static: false, read: ElementRef })
+  inputElement: ElementRef | undefined;
   constructor(
     private rickAndMortyService: RickAndMortyService,
     private router: Router
@@ -19,6 +22,26 @@ export class EpisodePageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initializeData();
+    this.initializeInputObserver();
+  }
+
+  private initializeInputObserver(): void {
+    this.inputChange$
+      .pipe(
+        debounceTime(1000),
+        distinctUntilChanged(),
+        switchMap((inputValue) => {
+          return this.rickAndMortyService.getEpisodesByFilter(inputValue);
+        })
+      )
+      .subscribe((res: IEpisodeResponse) => {
+        this.episodes = res;
+      });
+  }
+
+  onChange(event: Event): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.inputChange$.next(inputValue);
   }
 
   private initializeData(): void {

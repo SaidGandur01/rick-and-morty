@@ -7,6 +7,9 @@
   <h1>Characters List Page</h1>
   <button routerLink="/">Main Page</button>
 
+  <section class="search-section">
+    <input #inputElement type="text" (input)="onChange($event)">
+  </section>
   <div
     *ngFor="let character of characters.results"
     (click)="goToCharacterDetails(character.id)"
