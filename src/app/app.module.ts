@@ -10,6 +10,7 @@ import { EpisodePageComponent } from './components/episode/episode-page/episode-
 import { HomeComponent } from './components/home/home.component';
 import { LocationDetailsComponent } from './components/location/location-details/location-details.component';
 import { LocationPageComponent } from './components/location/location-page/location-page.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LocationPageComponent } from './components/location/location-page/locat
     EpisodeDetailsComponent,
     LocationPageComponent,
     LocationDetailsComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
