@@ -1,3 +1,13 @@
-<div class="app-character-details">
+<div *ngIf="character" class="app-character-details">
   <h1>Character Details Page</h1>
+  <button routerLink="/character">Back</button>
+  <button routerLink="/">Home</button>
+  <div class="character-information">
+    <h2>{{ character.name }}</h2>
+    <img [src]="character.image" alt="">
+    <h3>{{ character.gender }}</h3>
+    <h3>{{ character.species }}</h3>
+    <h3 *ngIf="character.type">{{ character.type }}</h3>
+    <h3>{{ character.location.name }}</h3>
+  </div>
 </div>

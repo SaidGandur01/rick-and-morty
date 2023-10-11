@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { RickAndMortyService } from 'src/app/services/rick-and-morty.service';
-import { ICharactersResponse } from 'src/app/utils/interfaces/characters.interface';
+import { ICharacter } from 'src/app/utils/interfaces/characters.interface';
 
 @Component({
   selector: 'app-character-details',
@@ -11,7 +11,7 @@ import { ICharactersResponse } from 'src/app/utils/interfaces/characters.interfa
 })
 export class CharacterDetailsComponent implements OnInit, OnDestroy {
   subscription: Subscription[] = [];
-  character!: Partial<ICharactersResponse>;
+  character!: ICharacter;
   constructor(
     private rickAndMortyService: RickAndMortyService,
     private route: ActivatedRoute
@@ -36,11 +36,12 @@ export class CharacterDetailsComponent implements OnInit, OnDestroy {
     this.subscription.push(
       this.rickAndMortyService
         .getCharacters([characterId])
-        .subscribe((character: Partial<ICharactersResponse>) => {
-          this.character = character;
-          console.log({
-            character: this.character
-          });
+        .subscribe(character => {
+          console.log(character)
+          this.character = character as unknown as ICharacter;
+          // console.log({
+          //   character: this.character
+          // });
         })
     );
   }
