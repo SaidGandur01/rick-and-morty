@@ -1,0 +1,16 @@
+<div *ngIf="
+  characters &&
+  characters.results &&
+  characters.results.length
+"
+  class="app-character-page">
+  <h1>Characters List Page</h1>
+
+  <div
+    *ngFor="let character of characters.results"
+    (click)="goToCharacterDetails(character.id)"
+    class="container">
+    <h2>{{ character.name }}</h2>
+    <img [src]="character.image" alt="character-image">
+  </div>
+</div>

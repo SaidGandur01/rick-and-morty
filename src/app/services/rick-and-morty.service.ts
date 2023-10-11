@@ -13,18 +13,21 @@ export class RickAndMortyService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCharacters(): Observable<ICharactersResponse> {
-    const path = `${this.baseUrl}/character`;
+  getCharacters(queryIds?: number[]): Observable<ICharactersResponse> {
+    const query = (queryIds && queryIds.length) ? queryIds.join(',') : '';
+    const path = `${this.baseUrl}/character/${query}`;
     return this.httpClient.get<ICharactersResponse>(path)
   }
 
-  getLocations(): Observable<ILocationResponse> {
-    const path = `${this.baseUrl}/location`;
+  getLocations(queryIds?: number[]): Observable<ILocationResponse> {
+    const query = (queryIds && queryIds.length) ? queryIds.join(',') : '';
+    const path = `${this.baseUrl}/location/${query}`;
     return this.httpClient.get<ILocationResponse>(path);
   }
 
-  getEpiosodes(): Observable<IEpisodeResponse> {
-    const path = `${this.baseUrl}/episode`;
+  getEpiosodes(queryIds?: number[]): Observable<IEpisodeResponse> {
+    const query = (queryIds && queryIds.length) ? queryIds.join(',') : '';
+    const path = `${this.baseUrl}/episode/${query}`;
     return this.httpClient.get<IEpisodeResponse>(path);
   }
 }
