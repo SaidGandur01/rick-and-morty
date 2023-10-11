@@ -1,1 +1,10 @@
-<p>location-details works!</p>
+<div *ngIf="location" class="app-location-details">
+  <h1>location Details Page</h1>
+  <button routerLink="/location">Locations list</button>
+  <div class="location-information">
+    <h2>{{ location.name }}</h2>
+    <h2>{{ location.created }}</h2>
+    <h2>{{ location.dimension }}</h2>
+    <h2>{{ location.type }}</h2>
+  </div>
+</div>

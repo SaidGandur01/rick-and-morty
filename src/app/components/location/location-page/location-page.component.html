@@ -1,1 +1,20 @@
-<p>location-page works!</p>
+<div *ngIf="
+  locations &&
+  locations.results &&
+  locations.results.length
+"
+  class="app-character-page">
+  <h1>Locations List Page</h1>
+  <button routerLink="/">Main Page</button>
+
+  <div
+    *ngFor="let location of locations.results"
+    (click)="goToLocationDetails(location.id)"
+    class="container">
+    <h2>{{ location.name }}</h2>
+    <h2>{{ location.created }}</h2>
+    <h2>{{ location.dimension }}</h2>
+    <h2>{{ location.type }}</h2>
+    <!-- <img [src]="location.image" alt="character-image"> -->
+  </div>
+</div>

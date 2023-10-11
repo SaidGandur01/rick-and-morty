@@ -3,19 +3,19 @@
 
   <div class="content-list">
     <h1 (click)="navigateTo('character')">Characters</h1>
-    <h2 *ngFor="let character of characters">
+    <h2 [routerLink]="['/character', character.id]" *ngFor="let character of characters">
       {{character.name}}
     </h2>
   </div>
   <div class="content-list">
     <h1 (click)="navigateTo('location')">Locations</h1>
-    <h2 *ngFor="let location of locations">
+    <h2 [routerLink]="['/location', location.id]" *ngFor="let location of locations">
       {{location.name}}
     </h2>
   </div>
   <div class="content-list">
     <h1 (click)="navigateTo('episode')">Episodes</h1>
-    <h2 *ngFor="let episode of episodes">
+    <h2 [routerLink]="['/episode', episode.id]" *ngFor="let episode of episodes">
       {{episode.name}}
     </h2>
   </div>
