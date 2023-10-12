@@ -1,10 +1,11 @@
-<div *ngIf="location" class="app-location-details">
-  <h1>location Details Page</h1>
-  <button routerLink="/location">Locations list</button>
-  <div class="location-information">
-    <h2>{{ location.name }}</h2>
-    <h2>{{ location.created }}</h2>
-    <h2>{{ location.dimension }}</h2>
-    <h2>{{ location.type }}</h2>
+<div class="app-location-details">
+  <img class="external-image" src="/assets/images/rick-and-morty.png" alt="rick-face">
+  <div *ngIf="location" class="body">
+    <div class="location-information">
+      <h2>Name: {{ location.name }}</h2>
+      <h2>Created: {{ location.created | date: 'dd/MM/yyyy' }}</h2>
+      <h2>Dimension: {{ location.dimension }}</h2>
+      <h2>Type: {{ location.type }}</h2>
+    </div>
   </div>
 </div>

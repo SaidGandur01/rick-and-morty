@@ -12,7 +12,7 @@ export interface ILocation {
   dimension: string;
   residents: string[];
   url: string[];
-  created: string[];
+  created: string;
 }
 
 export interface ILocationResponse {

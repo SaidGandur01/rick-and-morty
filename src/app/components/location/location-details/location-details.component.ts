@@ -12,6 +12,7 @@ import { ILocation } from 'src/app/utils/interfaces/location.interface';
 export class LocationDetailsComponent implements OnInit, OnDestroy {
   subscription: Subscription[] = [];
   location!: ILocation;
+
   constructor(
     private rickAndMortyService: RickAndMortyService,
     private route: ActivatedRoute
@@ -38,9 +39,6 @@ export class LocationDetailsComponent implements OnInit, OnDestroy {
         .getLocations([locationId])
         .subscribe(location => {
           this.location = location as unknown as ILocation;
-          console.log({
-            location: this.location
-          });
         })
     );
   }

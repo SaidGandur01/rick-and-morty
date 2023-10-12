@@ -4,7 +4,7 @@
     <div class="episode-information">
       <h2>Name: {{ episode.name }}</h2>
       <h2>Air date:{{ episode.air_date }}</h2>
-      <h2>Created: {{ episode.created }}</h2>
+      <h2>Created: {{ episode.created | date: 'dd/MM/yyyy' }}</h2>
       <h2>Episode: {{ episode.episode }}</h2>
     </div>
   </div>

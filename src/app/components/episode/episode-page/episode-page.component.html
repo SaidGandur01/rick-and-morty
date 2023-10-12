@@ -18,7 +18,7 @@
       class="episode">
       <h2>{{ episodes.name }}</h2>
       <h2>{{ episodes.episode }}</h2>
-      <h2>{{ episodes.created }}</h2>
+      <h2>{{ episodes.created | date: 'dd/MM/yyyy' }}</h2>
       <h2>{{ episodes.air_date }}</h2>
     </div>
     </div>
