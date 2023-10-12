@@ -2,26 +2,40 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
-## Development server
+## Screenshots
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This are some images from the project:
 
-## Code scaffolding
+### Home Page
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![Alt text](image.png)
 
-## Build
+### Characters Page
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![Alt text](image-1.png)
 
-## Running unit tests
+### Episode Page
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Alt text](image-2.png)
 
-## Running end-to-end tests
+### Location Page
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![Alt text](image-3.png)
 
-## Further help
+## Description
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+I created a home page that contains the main three records for characters, episodes, and locations.
+
+In this project you would see:
+
+1. The use of the routing module to handle all the components and the data.
+
+2. The creation of one service to fetch the data for every scenario: characters, locations and episodes.
+
+3. The integration of multiple components thinking about the user experience.
+
+4. The integration of a search bar for each list with the name as a criteria for the search.
+
+## Considerations
+
+### Please keep in mind I had just two days to complete this exercise and the other exercises from the interview
