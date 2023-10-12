@@ -4,17 +4,22 @@
   characters.results.length
 "
   class="app-character-page">
-  <h1>Characters List Page</h1>
-  <button routerLink="/">Main Page</button>
-
-  <section class="search-section">
-    <input #inputElement type="text" (input)="onChange($event)">
-  </section>
-  <div
-    *ngFor="let character of characters.results"
-    (click)="goToCharacterDetails(character.id)"
-    class="container">
-    <h2>{{ character.name }}</h2>
-    <img [src]="character.image" alt="character-image">
+  <div class="body">
+    <div class="header">
+      <h1>Characters List</h1>
+      <section class="search-section">
+        <input type="text" placeholder="Search by name" [(ngModel)]="inputValue" (input)="onChange($event)">
+      </section>
+    </div>
+    <div class="content">
+      <div
+        *ngFor="let character of characters.results"
+        (click)="goToCharacterDetails(character.id)"
+        class="character">
+        <h2>{{ character.name }}</h2>
+        <img [src]="character.image" alt="character-image">
+      </div>
+    </div>
   </div>
+
 </div>

@@ -1,0 +1,43 @@
+.header-container {
+  width: 100%;
+  nav {
+    background: linear-gradient(to right, #2B5971, #342125);
+    background-color: #fff;
+    width: inherit;
+    height: 8rem;
+    display: flex;
+    padding: 0 5rem;
+
+    ul {
+      color: #fff;
+      letter-spacing: 2px;
+      font-size: 2rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      li {
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+      li a {
+        cursor: pointer;
+      }
+
+      .right-content {
+        display: flex;
+        gap: 5rem;
+
+        li {
+          transition: 0.2s all;
+        }
+
+        li:hover {
+          transform: translateY(-5px);
+        }
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@ import { ICharacter } from 'src/app/utils/interfaces/characters.interface';
 import { IEpisode } from 'src/app/utils/interfaces/episode.interface';
 import { ILocation } from 'src/app/utils/interfaces/location.interface';
 
+type TabOptions = 'characters' | 'locations' | 'episodes';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   locations!: ILocation[];
   episodes!: IEpisode[];
   subscription!: Subscription;
+  currentTab: TabOptions = 'characters';
 
   constructor(
     private rickAndMortyService: RickAndMortyService,
@@ -42,6 +44,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.locations = res[1];
       this.episodes = res[2];
     })
+  }
+
+  toggleTab(currentTab: TabOptions): void {
+    this.currentTab = currentTab;
   }
 
   navigateTo(relativePath: string): void {

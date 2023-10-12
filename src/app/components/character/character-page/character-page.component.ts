@@ -1,6 +1,6 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject, Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { Subject, Subscription, catchError, debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
 import { RickAndMortyService } from 'src/app/services/rick-and-morty.service';
 import { ICharactersResponse } from 'src/app/utils/interfaces/characters.interface';
 
@@ -13,9 +13,7 @@ export class CharacterPageComponent implements OnInit, OnDestroy {
   subscription!: Subscription
   characters!: ICharactersResponse;
   inputChange$ = new Subject<string>();
-  @ViewChild('barChart', { static: false, read: ElementRef })
-  inputElement: ElementRef | undefined;
-
+  inputValue = ''
   constructor(
     private rickAndMortyService: RickAndMortyService,
     private router: Router  
@@ -28,16 +26,24 @@ export class CharacterPageComponent implements OnInit, OnDestroy {
 
   private initializeInputObserver(): void {
     this.inputChange$
-      .pipe(
-        debounceTime(1000),
-        distinctUntilChanged(),
-        switchMap((inputValue) => {
-          return this.rickAndMortyService.getCharactersByFilter(inputValue);
-        })
-      )
-      .subscribe((res: ICharactersResponse) => {
+    .pipe(
+      debounceTime(1000),
+      distinctUntilChanged(),
+      switchMap((inputValue) => {
+        return this.rickAndMortyService.getCharactersByFilter(inputValue).pipe(
+          catchError(error => {
+            this.initializeData();
+            this.inputValue = ''
+            return of([]);
+          })
+        );
+      })
+    )
+    .subscribe((res: any) => {
+      if (res.results) {
         this.characters = res;
-      });
+      }
+    });
   }
 
   private initializeData(): void {

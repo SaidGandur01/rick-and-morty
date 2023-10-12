@@ -1,3 +1,141 @@
-.content-list {
-  margin: 5rem 0;
+.home-container {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 80px);
+  background: linear-gradient(to bottom right, #2B5971, #342125);
+  padding: 5rem 10rem;
+
+  .body-content {
+    height: 100%;
+    width: 80%;
+    box-shadow: 0 0 200px 15px black;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
+    background-image: url('/assets/images/night-sky.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .external-image-one {
+      position: absolute;
+      width: 25%;
+      right: 0;
+      top: 35%;
+      transform: translate(35%, -50%) rotateZ(10deg);
+    }
+
+    .logo-container {
+      height: 40%;
+      display: flex;
+      justify-content: center;
+      padding: 5rem;
+      
+      img {
+        width: 80%;
+        height: 80%;
+      }
+    }
+
+    .information {
+      padding: 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 6rem;
+      flex-grow: 1;
+
+      .active {
+        color: lightgray;
+        font-size: 3rem;
+      }
+
+      .tab-section {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 4rem;
+        font-size: 2rem;
+        letter-spacing: 2px;
+
+        span {
+          cursor: pointer;
+          transition: 0.2s all;
+        }
+
+        span:hover {
+          transform: translateY(-5px);
+        }
+      }
+
+      .content-list {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: scroll;
+        height: 200px;
+        align-items: center;
+
+        .character-box {
+          margin-right: 5rem;
+        }
+
+        img {
+          cursor: pointer;
+          width: 150px;
+          height: 150px;
+          transition: 0.2s all;
+          border-radius: 20px;
+        }
+
+        img:hover {
+          transform: translateY(-5px);
+        }
+
+        .more-box {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: white;
+          width: 150px;
+          height: 150px;
+          border-radius: 20px;
+          transition: 0.2s all;
+
+          span {
+            color: black;
+            font-size: 3rem;
+          }
+        }
+
+        .more-box:hover {
+          transform: translateY(-5px);
+        }
+
+        .item-box {
+          cursor: pointer;
+          display: flex;
+          margin-right: 5rem;
+          justify-content: space-evenly;
+          flex-direction: column;
+          padding: 1rem;
+          width: 150px;
+          height: 150px;
+          background-color: white;
+          border-radius: 20px;
+          color: black;
+          transition: 0.2s all;
+
+          .value {
+            margin-top: 0,5rem;
+          }
+        }
+
+        .item-box:hover {
+          transform: translateY(-5px);
+        }
+      }
+    }
+  }
 }
