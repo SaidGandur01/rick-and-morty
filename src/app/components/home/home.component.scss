@@ -23,8 +23,16 @@
       position: absolute;
       width: 25%;
       right: 0;
-      top: 35%;
-      transform: translate(35%, -50%) rotateZ(10deg);
+      top: 40%;
+      transform: translate(40%, -50%) rotateZ(-20deg);
+    }
+
+    .external-image-two {
+      position: absolute;
+      width: 15%;
+      left: 0;
+      top: 15%;
+      transform: translate(-50%, -50%) rotateZ(10deg);
     }
 
     .logo-container {
@@ -48,8 +56,9 @@
       flex-grow: 1;
 
       .active {
-        color: lightgray;
+        color: #10ddf8;
         font-size: 3rem;
+        font-weight: 600;
       }
 
       .tab-section {
@@ -122,9 +131,10 @@
           padding: 1rem;
           width: 150px;
           height: 150px;
-          background-color: white;
+          background-color: black;
           border-radius: 20px;
-          color: black;
+          color: white;
+          box-shadow: 3px 3px 20px 0px #fff;
           transition: 0.2s all;
 
           .value {

@@ -1,21 +1,26 @@
-<div *ngIf="
-  episodes &&
-  episodes.results &&
-  episodes.results.length
-"
-  class="app-character-page">
-  <h1>Episodes List Page</h1>
-  <button routerLink="/">Main Page</button>
-  <section class="search-section">
-    <input #inputElement type="text" (input)="onChange($event)">
-  </section>
-  <div
-    *ngFor="let episodes of episodes.results"
-    (click)="goToEpisodeDetails(episodes.id)"
-    class="container">
-    <h2>{{ episodes.name }}</h2>
-    <h2>{{ episodes.episode }}</h2>
-    <h2>{{ episodes.created }}</h2>
-    <h2>{{ episodes.air_date }}</h2>
+<div class="app-episode-page">
+  <div *ngIf="
+    episodes &&
+    episodes.results &&
+    episodes.results.length
+  "
+  class="body">
+    <div class="header">
+      <h1>Episodes List</h1>
+      <section class="search-section">
+        <input placeholder="Search by name" type="text" [(ngModel)]="inputValue" (input)="onChange($event)">
+      </section>
+    </div>
+    <div class="content">
+      <div
+      *ngFor="let episodes of episodes.results"
+      (click)="goToEpisodeDetails(episodes.id)"
+      class="episode">
+      <h2>{{ episodes.name }}</h2>
+      <h2>{{ episodes.episode }}</h2>
+      <h2>{{ episodes.created }}</h2>
+      <h2>{{ episodes.air_date }}</h2>
+    </div>
+    </div>
   </div>
 </div>

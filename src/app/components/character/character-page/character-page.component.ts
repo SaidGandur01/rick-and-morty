@@ -27,7 +27,7 @@ export class CharacterPageComponent implements OnInit, OnDestroy {
   private initializeInputObserver(): void {
     this.inputChange$
     .pipe(
-      debounceTime(1000),
+      debounceTime(500),
       distinctUntilChanged(),
       switchMap((inputValue) => {
         return this.rickAndMortyService.getCharactersByFilter(inputValue).pipe(

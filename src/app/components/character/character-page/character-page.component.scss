@@ -2,6 +2,7 @@
   color: #fff;
   display: flex;
   justify-content: center;
+  min-height: calc(100vh - 80px);
   background: linear-gradient(to bottom right, #2B5971, #342125);
   padding: 5rem 10rem;
 
@@ -47,6 +48,10 @@
 
         h2 {
           margin-bottom: 2rem;
+        }
+
+        img {
+          border-radius: 30px;
         }
 
       }

@@ -1,10 +1,10 @@
-<div *ngIf="
-  characters &&
-  characters.results &&
-  characters.results.length
-"
-  class="app-character-page">
-  <div class="body">
+<div class="app-character-page">
+  <div *ngIf="
+    characters &&
+    characters.results &&
+    characters.results.length
+  "
+  class="body">
     <div class="header">
       <h1>Characters List</h1>
       <section class="search-section">

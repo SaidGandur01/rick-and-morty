@@ -1,6 +1,6 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject, Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { Subject, Subscription, catchError, debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
 import { RickAndMortyService } from 'src/app/services/rick-and-morty.service';
 import { ILocationResponse } from 'src/app/utils/interfaces/location.interface';
 
@@ -13,8 +13,8 @@ export class LocationPageComponent implements OnInit, OnDestroy {
   subscription!: Subscription
   locations!: ILocationResponse;
   inputChange$ = new Subject<string>();
-  @ViewChild('barChart', { static: false, read: ElementRef })
-  inputElement: ElementRef | undefined;
+  inputValue = ''
+
   constructor(
     private rickAndMortyService: RickAndMortyService,
     private router: Router
@@ -27,16 +27,24 @@ export class LocationPageComponent implements OnInit, OnDestroy {
 
   private initializeInputObserver(): void {
     this.inputChange$
-      .pipe(
-        debounceTime(1000),
-        distinctUntilChanged(),
-        switchMap((inputValue) => {
-          return this.rickAndMortyService.getLocationsByFilter(inputValue);
-        })
-      )
-      .subscribe((res: ILocationResponse) => {
+    .pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
+      switchMap((inputValue) => {
+        return this.rickAndMortyService.getLocationsByFilter(inputValue).pipe(
+          catchError(error => {
+            this.initializeData();
+            this.inputValue = ''
+            return of([]);
+          })
+        );
+      })
+    )
+    .subscribe((res: any) => {
+      if (res.results) {
         this.locations = res;
-      });
+      }
+    });
   }
 
   private initializeData(): void {

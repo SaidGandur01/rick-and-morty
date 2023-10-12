@@ -1,22 +1,27 @@
-<div *ngIf="
-  locations &&
-  locations.results &&
-  locations.results.length
-"
-  class="app-character-page">
-  <h1>Locations List Page</h1>
-  <button routerLink="/">Main Page</button>
-  <section class="search-section">
-    <input #inputElement type="text" (input)="onChange($event)">
-  </section>
-  <div
-    *ngFor="let location of locations.results"
-    (click)="goToLocationDetails(location.id)"
-    class="container">
-    <h2>{{ location.name }}</h2>
-    <h2>{{ location.created }}</h2>
-    <h2>{{ location.dimension }}</h2>
-    <h2>{{ location.type }}</h2>
-    <!-- <img [src]="location.image" alt="character-image"> -->
+<div class="app-location-page">
+  <div *ngIf="
+    locations &&
+    locations.results &&
+    locations.results.length
+  "
+  class="body">
+    <div class="header">
+      <h1>Locations List</h1>
+      <section class="search-section">
+        <input type="text" placeholder="Search by name" [(ngModel)]="inputValue" (input)="onChange($event)">
+      </section>
+    </div>
+    <div class="content">
+      <div
+      *ngFor="let location of locations.results"
+      (click)="goToLocationDetails(location.id)"
+      class="location">
+      <h2>Name: {{ location.name }}</h2>
+      <h2>Created: {{ location.created }}</h2>
+      <h2>Dimension: {{ location.dimension }}</h2>
+      <h2>Type: {{ location.type }}</h2>
+      <!-- <img [src]="location.image" alt="character-image"> -->
+    </div>
+    </div>
   </div>
 </div>

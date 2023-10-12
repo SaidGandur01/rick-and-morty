@@ -1,0 +1,63 @@
+.app-episode-page {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(to bottom right, #2B5971, #342125);
+  padding: 5rem 10rem;
+
+  .body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 5rem;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4rem;
+
+      h1 {
+        font-size: 4rem;
+      }
+
+      section {
+        width: 40%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        input {
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+          padding: 1rem 2rem;
+        }
+      }
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 5rem;
+
+      .episode {
+        padding: 2rem;
+        cursor: pointer;
+        transition: 0.2s all;
+        background-color: #000;
+        border-radius: 20px;
+        box-shadow: 3px 3px 20px 0px #fff;
+
+        h2 {
+          margin-bottom: 2rem;
+        }
+
+      }
+      .episode:hover {
+        transform: translateY(-8px);
+      }
+    }
+  }
+}
