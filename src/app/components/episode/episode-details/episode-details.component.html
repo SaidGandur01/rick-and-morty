@@ -1,10 +1,11 @@
-<div *ngIf="episode" class="app-episode-details">
-  <h1>episode Details Page</h1>
-  <button routerLink="/episode">Episodes list</button>
-  <div class="episode-information">
-    <h2>{{ episode.name }}</h2>
-    <h2>{{ episode.air_date }}</h2>
-    <h2>{{ episode.created }}</h2>
-    <h2>{{ episode.episode }}</h2>
+<div class="app-episode-details">
+  <div *ngIf="episode" class="body">
+    <img class="external-image" src="/assets/images/rick-planet.png" alt="rick-face">
+    <div class="episode-information">
+      <h2>Name: {{ episode.name }}</h2>
+      <h2>Air date:{{ episode.air_date }}</h2>
+      <h2>Created: {{ episode.created }}</h2>
+      <h2>Episode: {{ episode.episode }}</h2>
+    </div>
   </div>
 </div>
