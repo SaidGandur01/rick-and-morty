@@ -52,9 +52,6 @@ export class LocationPageComponent implements OnInit, OnDestroy {
       .getLocations()
       .subscribe((res: ILocationResponse) => {
       this.locations = res;
-      console.log({
-        locations: this.locations
-      });
     })
   }
 

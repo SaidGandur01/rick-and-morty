@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       locationObservable,
       episodeObservable
     ).subscribe((res: any) => {
-      console.log({res})
       this.characters = res[0];
       this.locations = res[1];
       this.episodes = res[2];

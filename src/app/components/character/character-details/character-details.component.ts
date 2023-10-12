@@ -37,11 +37,7 @@ export class CharacterDetailsComponent implements OnInit, OnDestroy {
       this.rickAndMortyService
         .getCharacters([characterId])
         .subscribe(character => {
-          console.log(character)
           this.character = character as unknown as ICharacter;
-          // console.log({
-          //   character: this.character
-          // });
         })
     );
   }

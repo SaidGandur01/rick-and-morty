@@ -51,9 +51,6 @@ export class CharacterPageComponent implements OnInit, OnDestroy {
       .getCharacters()
       .subscribe((res: ICharactersResponse) => {
       this.characters = res;
-      console.log({
-        characters: this.characters
-      });
     })
   }
 

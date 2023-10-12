@@ -57,9 +57,6 @@ export class EpisodePageComponent implements OnInit, OnDestroy {
       .getEpiosodes()
       .subscribe((res: IEpisodeResponse) => {
       this.episodes = res;
-      console.log({
-        episodes: this.episodes
-      });
     })
   }
 

@@ -38,9 +38,6 @@ export class EpisodeDetailsComponent implements OnInit, OnDestroy {
         .getEpiosodes([episodeId])
         .subscribe(episode => {
           this.episode = episode as unknown as IEpisode;
-          console.log({
-            episode: this.episode
-          });
         })
     );
   }
